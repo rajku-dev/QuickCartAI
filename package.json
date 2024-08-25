@@ -1,0 +1,37 @@
+{
+  "scripts": {
+    "start": "webpack serve --open --hot",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "babel-loader": "^9.1.3",
+    "css-loader": "^7.1.2",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.17.1",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "dotenv": "^16.4.5",
+    "dotenv-webpack": "^8.1.0",
+    "firebase": "^10.13.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "vm-browserify": "^1.1.2"
+  },
+  "name": "quickcartai",
+  "description": "QuickCart-AI is a dynamic web application designed to streamline your shopping experience. Built with modern web technologies including Webpack, HTML, CSS, JavaScript, Node.js, and Firebase, this app offers a seamless integration of artificial intelligence to enhance your shopping cart functionality.",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

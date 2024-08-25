@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickCart</title>
+  <!-- <link rel="stylesheet" href="styles.css" />
+  <script src="./index.js"></script>
+  <script type="module" src="./index.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/generative-ai@latest/dist/index.mjs"></script> -->
+</head>
+<body>
+    <!-- Login Page -->
+    <main id="loginPage" style="display: none;">
+        <div class="container">
+          <h1>Login or Sign Up</h1>
+          <div id="signInForm" class="auth-form">
+            <div class="form-group">
+              <input type="email" id="signInEmail" placeholder="Email" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                id="signInPassword"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <button id="signInBtn">Sign In with Email</button>
+            <button class="gsi-material-button" id="loginBtn" style="width:100%">
+              <div class="gsi-material-button-state"></div>
+              <div class="gsi-material-button-content-wrapper">
+                <div class="gsi-material-button-icon">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
+                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                    <path fill="none" d="M0 0h48v48H0z"></path>
+                  </svg>
+                </div>
+                <span class="gsi-material-button-contents">Continue with Google</span>
+                <span style="display: none;">Continue with Google</span>
+              </div>
+            </button>
+          </div>
+          <div id="signUpForm" class="auth-form" style="display: none">
+            <div class="form-group">
+              <input type="email" id="signUpEmail" placeholder="Email" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                id="signUpPassword"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <button id="signUpBtn">Sign Up with Email</button>
+            <button class="gsi-material-button" id="loginBtn"style="width:100%">
+              <div class="gsi-material-button-state"></div>
+              <div class="gsi-material-button-content-wrapper">
+                <div class="gsi-material-button-icon">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
+                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                    <path fill="none" d="M0 0h48v48H0z"></path>
+                  </svg>
+                </div>
+                <span class="gsi-material-button-contents">Continue with Google</span>
+                <span style="display: none;">Continue with Google</span>
+              </div>
+            </button>
+          </div>
+          </div>
+          <p id="error-message" class="error"></p>
+        </div>
+        <div id="auth-options">
+          <button id="showSignIn">Sign In</button>
+          <button id="showSignUp">Sign Up</button>
+        </div>
+      </main>
+    <!-- Cart Page -->
+    <div id="cartPage" style="display: none";>
+        <header>
+            <h1 id="name-show"></h1>
+            <button id="logoutBtn">Log Out</button>
+        </header>
+        <div class="container">
+            <h1>QUICK  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>  CART</h1>
+            <input type="text" placeholder="type any item Bread.." id="input" />
+            <button id="add-btn">Add To Cart</button>
+            <ul id="ul" class="ul-cart"></ul>
+            <div><img src="./assets/ai.png" id="categorizeBtn" class="ai" alt="ai" /></div>
+            <div id="categorizedItems" style="display: none;">
+              <div class="categorized-column">
+                <h2 id="cheap-text">Cheap Items</h2>
+                <ul id="cheap"></ul>
+              </div>
+              <div class="separator"></div>
+              <div class="categorized-column">
+                <h2 id="expensive-text">Expensive Items</h2>
+                <ul id="expensive"></ul>
+              </div>
+            </div>
+            <h2 id="cost" style="display:none;"></h2>
+        </div>
+        <footer>
+            <div id="footer-content">
+              <div class="footer-section" id="about">
+                <h4>About Us</h4>
+                <p>Enhace your shopping experince with this AI driven shopping cart application</p>
+              </div>
+              <div class="footer-section" id="contact">
+                <h4>Contact Us</h4>
+                <p>Email: <a href="mailto:rajkumarocks505@gmail.com">rajkumarocks505@gmail.com</a></p>
+                <p>Phone: +91 7668573611</p>
+                <p>Address: 123 Your Street, Your City, India</p>
+              </div>
+              <div class="footer-section" id="social">
+                <h4>Follow Us</h4>
+                <a href="https://facebook.com">Facebook</a> | 
+                <a href="https://twitter.com">Twitter</a> | 
+                <a href="https://instagram.com">Instagram</a> | 
+                <a href="https://linkedin.com">LinkedIn</a>
+              </div>
+            </div>
+            <div id="links">
+              <a href="https://bankeasy.vercel.app/withdraw">Withdraw</a>
+              <a href="https://amazon.in">Amazon</a>
+              <a href="https://flipkart.in">Flipkart</a>
+              <a href="https://zomato.in">Zomato</a>
+              <a href="https://myntra.com">Myntra</a>
+            </div>
+            <div id="terms">
+              <p>&copy; 2024 QuickCart. All rights reserved.</p>
+              <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+            </div>
+        </footer>
+    </div>
+    <!-- <script src="../dist/bundle.js"></script> -->
+</body>
+</html>
