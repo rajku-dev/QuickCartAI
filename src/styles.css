@@ -538,11 +538,20 @@ header h1 {
   color: #eade55;
 }
 
-#cartPage #links {
+#cartPage{
   display: flex;
   justify-content: space-around;
   margin: 40px 100px;
 }
+
+#links {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  margin: 40px auto; 
+  gap: 20px; 
+}
+
 
 #cartPage footer {
   background-color: #130900;
